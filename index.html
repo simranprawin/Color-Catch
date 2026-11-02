@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7667f5">
+    <title>Color Catch ⭐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-decor">
+        <span class="cloud cloud-one">☁️</span>
+        <span class="cloud cloud-two">☁️</span>
+        <span class="floating-star star-one">✦</span>
+        <span class="floating-star star-two">✧</span>
+        <span class="floating-star star-three">✦</span>
+        <span class="floating-star star-four">✧</span>
+    </div>
+
+    <main class="app">
+
+        <header class="game-header">
+            <div class="logo">Color Catch <span>⭐</span></div>
+            <p class="tagline">Catch the stars, become a superstar!</p>
+        </header>
+
+        <section class="scoreboard">
+
+            <div class="score-card current-card">
+                <div class="score-icon">⭐</div>
+                <div>
+                    <p>YOUR SCORE</p>
+                    <h2 id="score">0</h2>
+                </div>
+            </div>
+
+            <div class="score-card high-card">
+                <div class="score-icon">🏆</div>
+                <div>
+                    <p>HIGH SCORE</p>
+                    <h2 id="highScore">0</h2>
+                </div>
+            </div>
+
+            <div class="score-card lives-card">
+                <div class="score-icon">💖</div>
+                <div>
+                    <p>LIVES LEFT</p>
+                    <h2 id="lives">❤️❤️❤️</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="game-layout">
+
+            <div class="game-container">
+
+                <div class="game-topbar">
+                    <div class="level-badge">
+                        🌟 Level <span id="level">1</span>
+                    </div>
+
+                    <div class="game-status" id="gameStatus">
+                        Ready to play!
+                    </div>
+
+                    <button class="sound-button" id="soundButton"
+                        aria-label="Toggle sound" title="Toggle sound">
+                        🔊
+                    </button>
+                </div>
+
+                <div class="game-world" id="gameWorld">
+
+                    <div class="sun">☀️</div>
+
+                    <div class="rainbow">🌈</div>
+
+                    <div class="scenery scenery-left">🌳</div>
+                    <div class="scenery scenery-right">🌷</div>
+
+                    <div class="start-screen" id="startScreen">
+                        <div class="start-emoji">🧺✨</div>
+                        <h2>Ready, Star Catcher?</h2>
+                        <p>Catch falling stars and beat your high score!</p>
+
+                        <div class="mini-instructions">
+                            <span>⬅️ Move left</span>
+                            <span>➡️ Move right</span>
+                        </div>
+
+                        <button class="primary-button" id="startButton">
+                            ▶ Start Game
+                        </button>
+                    </div>
+
+                    <div class="pause-overlay hidden" id="pauseOverlay">
+                        <div class="overlay-card">
+                            <div class="overlay-emoji">⏸️</div>
+                            <h2>Game Paused</h2>
+                            <p>Take a little break!</p>
+                            <button class="primary-button" id="resumeButton">
+                                ▶ Resume Game
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="game-over-overlay hidden" id="gameOverOverlay">
+                        <div class="overlay-card game-over-card">
+                            <div class="overlay-emoji" id="gameOverEmoji">🌟</div>
+                            <h2 id="gameOverTitle">Game Over!</h2>
+                            <p class="final-score-text">
+                                Your score:
+                                <strong id="finalScore">0</strong>
+                            </p>
+
+                            <p class="final-high-score">
+                                🏆 High score:
+                                <strong id="finalHighScore">0</strong>
+                            </p>
+
+                            <div class="new-record hidden" id="newRecord">
+                                🎉 NEW HIGH SCORE! 🎉
+                            </div>
+
+                            <p id="gameOverMessage">Amazing effort!</p>
+
+                            <button class="primary-button" id="playAgainButton">
+                                🔄 Play Again
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="basket" id="basket" aria-label="Star catching basket">
+                        <div class="basket-handle"></div>
+                        <div class="basket-bow">🎀</div>
+                        <div class="basket-body">🧺</div>
+                    </div>
+
+                    <div class="catch-effect hidden" id="catchEffect">+1 ⭐</div>
+
+                </div>
+
+                <div class="game-controls">
+                    <button class="move-button" id="leftButton"
+                        aria-label="Move left">⬅️</button>
+
+                    <span>Move your basket!</span>
+
+                    <button class="move-button" id="rightButton"
+                        aria-label="Move right">➡️</button>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="secondary-button" id="pauseButton" disabled>
+                        ⏸ Pause
+                    </button>
+
+                    <button class="secondary-button" id="restartButton">
+                        🔄 Restart
+                    </button>
+                </div>
+
+            </div>
+
+            <aside class="side-panel">
+
+                <div class="info-card how-to-card">
+                    <div class="info-icon">🎮</div>
+                    <h3>How to Play</h3>
+
+                    <div class="instruction">
+                        <span>⬅️➡️</span>
+                        <p>Move the basket left and right.</p>
+                    </div>
+
+                    <div class="instruction">
+                        <span>⭐</span>
+                        <p>Catch stars to earn points.</p>
+                    </div>
+
+                    <div class="instruction">
+                        <span>💔</span>
+                        <p>Missing a star costs one life.</p>
+                    </div>
+
+                    <div class="instruction">
+                        <span>🏆</span>
+                        <p>Beat your high score to win!</p>
+                    </div>
+                </div>
+
+                <div class="info-card record-card">
+                    <div class="info-icon">👑</div>
+                    <h3>Your Best</h3>
+                    <div class="record-number" id="sideHighScore">0</div>
+                    <p>Keep reaching for the stars!</p>
+                </div>
+
+                <div class="info-card stats-card">
+                    <h3>📊 Your Stats</h3>
+
+                    <div class="stat-row">
+                        <span>Stars caught</span>
+                        <strong id="totalCaught">0</strong>
+                    </div>
+
+                    <div class="stat-row">
+                        <span>Stars missed</span>
+                        <strong id="totalMissed">0</strong>
+                    </div>
+
+                    <div class="stat-row">
+                        <span>Games played</span>
+                        <strong id="gamesPlayed">0</strong>
+                    </div>
+                </div>
+
+                <button class="reset-record-button" id="resetRecordButton">
+                    🗑️ Reset All Records
+                </button>
+
+            </aside>
+
+        </section>
+
+        <footer class="footer">
+            <p>Made with 💖 and a little bit of stardust ✨</p>
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
